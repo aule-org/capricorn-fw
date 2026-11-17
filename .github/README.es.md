@@ -23,16 +23,20 @@ No empezamos de cero, ni queremos hacerlo. El firmware de Capricorn es un fork d
 
 ## Ramas
 
-| Rama | Para qué |
-|---|---|
-| `capricorn` (por defecto) | Nuestro trabajo. |
-| `main` | Copia de [78/xiaozhi-esp32](https://github.com/78/xiaozhi-esp32). Nunca se edita a mano. |
+`capricorn` es la única rama y la que se ve por defecto. xiaozhi no se copia en este repositorio: se sigue como remoto, y sus cambios entran con un pull request que fusiona su `main` en `capricorn`.
 
-Lo que sirva a xiaozhi se le envía como pull request desde ramas aparte. Del lado de LiveKit ya contribuimos: [livekit/client-sdk-esp32#74](https://github.com/livekit/client-sdk-esp32/pull/74).
+```bash
+git remote add upstream https://github.com/78/xiaozhi-esp32.git
+git fetch upstream
+git switch -c sync/xiaozhi-$(date +%Y-%m-%d) origin/capricorn
+git merge upstream/main          # luego abre un pull request a capricorn
+```
+
+Lo que sirva a xiaozhi se le envía como pull request desde ramas basadas en `upstream/main`. Los nombres de rama no deben empezar con `ci/`: el workflow de compilación de xiaozhi corre su matriz completa en esas ramas. Del lado de LiveKit ya contribuimos: [livekit/client-sdk-esp32#74](https://github.com/livekit/client-sdk-esp32/pull/74).
 
 ## Estado
 
-Temprano. El transporte LiveKit y el soporte de la placa de Capricorn se están escribiendo; todavía no hay nada que flashear. Mientras tanto, el código de `main` es xiaozhi tal cual y aplica su propia [documentación](https://github.com/78/xiaozhi-esp32#readme).
+Temprano. Cada push y pull request compila la placa de Capricorn y dos placas de referencia en GitHub Actions. El soporte de la placa cubre el audio, el botón para hablar y el LED de estado; siguen la pantalla de tinta electrónica, el táctil y el transporte LiveKit. Nada se ha ejecutado todavía en una placa de Capricorn.
 
 ## Licencia
 

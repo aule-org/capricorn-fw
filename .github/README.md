@@ -23,16 +23,20 @@ We did not start from zero, and we do not want to. Capricorn's firmware is a for
 
 ## Branches
 
-| Branch | Purpose |
-|---|---|
-| `capricorn` (default) | Our work. |
-| `main` | Mirrors [78/xiaozhi-esp32](https://github.com/78/xiaozhi-esp32). Never edited by hand. |
+`capricorn` is the only branch here and the default one. xiaozhi is not mirrored in this repository: it is tracked as a remote, and its changes come in through a pull request that merges its `main` into `capricorn`.
 
-Contributions meant for xiaozhi go to xiaozhi as pull requests from topic branches. We already contribute upstream on the LiveKit side: [livekit/client-sdk-esp32#74](https://github.com/livekit/client-sdk-esp32/pull/74).
+```bash
+git remote add upstream https://github.com/78/xiaozhi-esp32.git
+git fetch upstream
+git switch -c sync/xiaozhi-$(date +%Y-%m-%d) origin/capricorn
+git merge upstream/main          # then open a pull request to capricorn
+```
+
+Changes meant for xiaozhi go to xiaozhi as pull requests from topic branches based on `upstream/main`. Branch names here must not start with `ci/`: xiaozhi's own build workflow runs its full matrix on those. We already contribute upstream on the LiveKit side: [livekit/client-sdk-esp32#74](https://github.com/livekit/client-sdk-esp32/pull/74).
 
 ## Status
 
-Early. The LiveKit transport and the Capricorn board support are being written; there is nothing to flash yet. Until then, the code on `main` is plain xiaozhi and its own [documentation](https://github.com/78/xiaozhi-esp32#readme) applies.
+Early. Every push and pull request builds the Capricorn board and two reference boards on GitHub Actions. The Capricorn board support covers audio, the talk button and the status LED; the e-ink display, touch and the LiveKit transport are next. Nothing has run on a Capricorn board yet.
 
 ## License
 
