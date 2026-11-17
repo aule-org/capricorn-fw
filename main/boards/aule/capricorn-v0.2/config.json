@@ -6,7 +6,7 @@
         {
             "name": "capricorn-v0.2",
             "sdkconfig_append": [
-                "CONFIG_OTA_URL=\"https://capricorn.aule.school/ota/\""
+                "CONFIG_OTA_URL=\"https://capricorn.meetaule.com/ota/\""
             ]
         }
     ]
