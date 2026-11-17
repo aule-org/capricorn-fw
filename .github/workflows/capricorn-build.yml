@@ -63,3 +63,17 @@ jobs:
           path: build/merged-binary.bin
           if-no-files-found: error
           retention-days: 30
+
+  required:
+    name: Firmware CI
+    needs: build
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Require every board build to pass
+        env:
+          BUILD_RESULT: ${{ needs.build.result }}
+        run: |
+          printf 'Board builds=%s\n' "$BUILD_RESULT"
+          test "$BUILD_RESULT" = success
