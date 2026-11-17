@@ -5,8 +5,8 @@ name: Capricorn build
 on:
   push:
     branches: [capricorn]
+  # Every pull request, including ones stacked on another branch.
   pull_request:
-    branches: [capricorn]
   workflow_dispatch:
 
 permissions:
