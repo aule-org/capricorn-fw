@@ -14,6 +14,12 @@ Board support for [Capricorn](https://github.com/aule-org/capricorn-hw), the ope
 
 The microphone and reference gains in `config.h` are starting values from the board's level budget, not measurements.
 
+## Server
+
+This build points to Aule's server, `https://capricorn.aule.school/ota/`, instead of xiaozhi's default cloud (`api.tenclass.net`), so a Capricorn never sends its identifiers or a child's voice to a third party by default. That server is [capricorn-sw](https://github.com/aule-org/capricorn-sw) and does not exist yet: until it does, the device cannot activate. To use another server, set `CONFIG_OTA_URL` before building (menuconfig, *Xiaozhi Assistant → Default OTA URL*). A URL saved on the device in `wifi.ota_url` takes precedence over it.
+
+The reference boards built in CI (Waveshare) keep xiaozhi's default server and are for development only; their artifacts are named `dev-xiaozhi-cloud_*`.
+
 ## Notes
 
 - The codecs and the audio I2C pull-ups are powered through Q1 (`AUDIO_POWER_EN_GPIO`, low = on), so audio is powered before the I2C bus is created.
