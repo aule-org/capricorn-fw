@@ -16,6 +16,29 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  image-converter:
+    name: Image converter
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: scripts/Image_Converter
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Install the system Python and Tk libraries
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-tk python3-venv
+      - name: Install the converter's pinned dependencies
+        run: |
+          /usr/bin/python3 -m venv "$RUNNER_TEMP/image-converter-venv"
+          "$RUNNER_TEMP/image-converter-venv/bin/python" -m pip install --requirement requirements.txt
+      - name: Exercise the real Pillow to LVGL conversion
+        run: |
+          "$RUNNER_TEMP/image-converter-venv/bin/python" -m unittest discover -s tests -v
+
   firmware:
     name: Cppcheck and build tooling
     # Forks and non-default branches never use the shared server.
