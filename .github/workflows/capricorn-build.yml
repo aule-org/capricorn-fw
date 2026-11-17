@@ -5,8 +5,8 @@ name: Capricorn build
 on:
   push:
     branches: [capricorn]
+  # Every pull request, including ones stacked on another branch.
   pull_request:
-    branches: [capricorn]
   workflow_dispatch:
 
 permissions:
@@ -25,6 +25,8 @@ jobs:
       fail-fast: false
       matrix:
         board:
+          # The Capricorn board itself.
+          - aule/capricorn-v0.2
           # Development board of our earlier device, used for bench tests until
           # the Capricorn board is brought up.
           - waveshare/esp32-s3-audio-board
