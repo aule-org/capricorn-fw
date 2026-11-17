@@ -23,18 +23,23 @@ We did not start from zero, and we do not want to. Capricorn's firmware is a for
 
 ## Branches
 
-`capricorn` is the only branch here and the default one. xiaozhi is not mirrored in this repository: it is tracked as a remote, and its changes come in through a pull request that merges its `main` into `capricorn`.
+| Branch | Purpose |
+|---|---|
+| `capricorn` (default) | Our work. |
+| `main` | Mirror of [78/xiaozhi-esp32](https://github.com/78/xiaozhi-esp32)'s `main`. Only fast-forwarded from upstream, never edited by hand. |
+
+To bring in xiaozhi's changes:
 
 ```bash
 git remote add upstream https://github.com/78/xiaozhi-esp32.git
 git fetch upstream
-git switch -c sync/xiaozhi-$(date +%Y-%m-%d) origin/capricorn
-git merge upstream/main          # then open a pull request to capricorn
+git push origin upstream/main:main   # fast-forward the mirror
+# then open a pull request from main into capricorn
 ```
 
-When a sync touches xiaozhi's issue forms or `SUPPORT.md`, keep them deleted: this repository uses its own forms in `.github/ISSUE_TEMPLATE/`.
+xiaozhi's own build workflow ("Build Boards") is disabled in this fork, so updating `main` does not start its full board matrix. Branch names must not start with `ci/`, where that workflow would otherwise apply. When a sync touches xiaozhi's issue forms or `SUPPORT.md`, keep them deleted: this repository uses its own forms in `.github/ISSUE_TEMPLATE/`.
 
-Changes meant for xiaozhi go to xiaozhi as pull requests from topic branches based on `upstream/main`. Branch names here must not start with `ci/`: xiaozhi's own build workflow runs its full matrix on those. We already contribute upstream on the LiveKit side: [livekit/client-sdk-esp32#74](https://github.com/livekit/client-sdk-esp32/pull/74).
+Changes meant for xiaozhi go to xiaozhi as pull requests from topic branches based on `main`. We already contribute upstream on the LiveKit side: [livekit/client-sdk-esp32#74](https://github.com/livekit/client-sdk-esp32/pull/74).
 
 ## Status
 
