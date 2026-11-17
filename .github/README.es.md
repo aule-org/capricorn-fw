@@ -1,10 +1,10 @@
 # Capricorn Firmware
 
 <p>
-  <a href="https://github.com/aule-org/capricorn-hw"><img src="https://img.shields.io/badge/Hardware-capricorn--hw-1f6feb.svg" alt="Hardware de Capricorn"></a>
-  <a href="https://github.com/aule-org/capricorn-fw"><img src="https://img.shields.io/badge/Firmware-Capricorn-2da44e.svg" alt="Firmware de Capricorn"></a>
-  <a href="https://github.com/aule-org/capricorn-sw"><img src="https://img.shields.io/badge/Servidor-capricorn--sw-d97706.svg" alt="Servidor de Capricorn"></a>
-  <a href="https://github.com/aule-org/capricorn-app"><img src="https://img.shields.io/badge/App-capricorn--app-8250df.svg" alt="App de Capricorn"></a>
+  <a href="https://github.com/meet-aule/capricorn-hw"><img src="https://img.shields.io/badge/Hardware-capricorn--hw-1f6feb.svg" alt="Hardware de Capricorn"></a>
+  <a href="https://github.com/meet-aule/capricorn-fw"><img src="https://img.shields.io/badge/Firmware-Capricorn-2da44e.svg" alt="Firmware de Capricorn"></a>
+  <a href="https://github.com/meet-aule/capricorn-sw"><img src="https://img.shields.io/badge/Servidor-capricorn--sw-d97706.svg" alt="Servidor de Capricorn"></a>
+  <a href="https://github.com/meet-aule/capricorn-app"><img src="https://img.shields.io/badge/App-capricorn--app-8250df.svg" alt="App de Capricorn"></a>
   <a href="https://github.com/78/xiaozhi-esp32"><img src="https://img.shields.io/badge/Basado%20en-xiaozhi--esp32-555.svg" alt="Basado en xiaozhi-esp32"></a>
 </p>
 
@@ -16,8 +16,8 @@ No empezamos de cero, ni queremos hacerlo. El firmware de Capricorn es un fork d
 
 ## Lo que agregamos
 
-- **Un transporte LiveKit.** Voz por WebRTC con [LiveKit](https://github.com/livekit/client-sdk-esp32), junto a los transportes WebSocket y MQTT de xiaozhi. Conecta el aparato con cualquier tutor hecho en [LiveKit Agents](https://github.com/livekit/agents), como nuestro servidor, [capricorn-sw](https://github.com/aule-org/capricorn-sw), y permite que un padre o un tutor humano entre a la misma sesión.
-- **La placa de Capricorn.** Soporte para el aparato de [capricorn-hw](https://github.com/aule-org/capricorn-hw): tinta electrónica de 7.5" con táctil, silencio físico del micrófono, despertar con movimiento.
+- **Un transporte LiveKit.** Voz por WebRTC con [LiveKit](https://github.com/livekit/client-sdk-esp32), junto a los transportes WebSocket y MQTT de xiaozhi. Conecta el aparato con cualquier tutor hecho en [LiveKit Agents](https://github.com/livekit/agents), como nuestro servidor, [capricorn-sw](https://github.com/meet-aule/capricorn-sw), y permite que un padre o un tutor humano entre a la misma sesión.
+- **La placa de Capricorn.** Soporte para el aparato de [capricorn-hw](https://github.com/meet-aule/capricorn-hw): tinta electrónica de 7.5" con táctil, silencio físico del micrófono, despertar con movimiento.
 - **Una interfaz de tutor para tinta electrónica.** Ejercicios, pistas y avance pensados para una página, no para la pantalla de un celular.
 - **Lo aprendido en el campo.** Piezas de nuestro aparato anterior, que familias usaron en casa: configuración del Wi-Fi por Bluetooth y por navegador, credenciales por aparato y ocultamiento de cortes de audio afinado en redes domésticas reales.
 
