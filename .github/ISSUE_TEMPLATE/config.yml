@@ -1,10 +1,10 @@
 blank_issues_enabled: false
 contact_links:
   - name: Hardware (board, enclosure, ordering)
-    url: https://github.com/aule-org/capricorn-hw/issues
+    url: https://github.com/meet-aule/capricorn-hw/issues
     about: Problems with the Capricorn board, the dock, the BOM or ordering belong in capricorn-hw.
   - name: Server (voice tutor, activation, accounts)
-    url: https://github.com/aule-org/capricorn-sw/issues
+    url: https://github.com/meet-aule/capricorn-sw/issues
     about: Problems with the tutor's answers, device activation or the family API belong in capricorn-sw.
   - name: Privacy or security report
     url: mailto:admin@meetaule.com
