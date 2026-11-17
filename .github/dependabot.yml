@@ -1,0 +1,22 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ['*']
+  - package-ecosystem: docker
+    directory: /docker/firmware-builder
+    schedule:
+      interval: weekly
+  - package-ecosystem: pip
+    directories:
+      - /scripts/Image_Converter
+      - /scripts/p3_tools
+    schedule:
+      interval: weekly
+    groups:
+      compatible:
+        update-types: [minor, patch]
