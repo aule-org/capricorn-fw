@@ -51,7 +51,10 @@ jobs:
         shell: bash
         env:
           BOARD: ${{ matrix.board }}
-        run: echo "value=capricorn_${BOARD//\//_}_${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+        # Reference boards keep xiaozhi's default server (its cloud): development only.
+        run: |
+          if [[ "$BOARD" == aule/* ]]; then prefix=capricorn; else prefix=dev-xiaozhi-cloud; fi
+          echo "value=${prefix}_${BOARD//\//_}_${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
 
       - name: Upload firmware
         uses: actions/upload-artifact@v7
