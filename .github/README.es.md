@@ -23,18 +23,23 @@ No empezamos de cero, ni queremos hacerlo. El firmware de Capricorn es un fork d
 
 ## Ramas
 
-`capricorn` es la única rama y la que se ve por defecto. xiaozhi no se copia en este repositorio: se sigue como remoto, y sus cambios entran con un pull request que fusiona su `main` en `capricorn`.
+| Rama | Para qué |
+|---|---|
+| `capricorn` (por defecto) | Nuestro trabajo. |
+| `main` | Copia del `main` de [78/xiaozhi-esp32](https://github.com/78/xiaozhi-esp32). Solo avanza desde el original, nunca se edita a mano. |
+
+Para traer los cambios de xiaozhi:
 
 ```bash
 git remote add upstream https://github.com/78/xiaozhi-esp32.git
 git fetch upstream
-git switch -c sync/xiaozhi-$(date +%Y-%m-%d) origin/capricorn
-git merge upstream/main          # luego abre un pull request a capricorn
+git push origin upstream/main:main   # avanza la copia
+# luego abre un pull request de main a capricorn
 ```
 
-Si una sincronización toca los formularios de issues de xiaozhi o `SUPPORT.md`, mantenlos borrados: este repositorio usa sus propios formularios en `.github/ISSUE_TEMPLATE/`.
+El workflow de compilación de xiaozhi ("Build Boards") está desactivado en este fork, así que actualizar `main` no lanza su matriz completa de placas. Los nombres de rama no deben empezar con `ci/`. Si una sincronización toca los formularios de issues de xiaozhi o `SUPPORT.md`, mantenlos borrados: este repositorio usa sus propios formularios en `.github/ISSUE_TEMPLATE/`.
 
-Lo que sirva a xiaozhi se le envía como pull request desde ramas basadas en `upstream/main`. Los nombres de rama no deben empezar con `ci/`: el workflow de compilación de xiaozhi corre su matriz completa en esas ramas. Del lado de LiveKit ya contribuimos: [livekit/client-sdk-esp32#74](https://github.com/livekit/client-sdk-esp32/pull/74).
+Lo que sirva a xiaozhi se le envía como pull request desde ramas basadas en `main`. Del lado de LiveKit ya contribuimos: [livekit/client-sdk-esp32#74](https://github.com/livekit/client-sdk-esp32/pull/74).
 
 ## Estado
 
