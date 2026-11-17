@@ -32,6 +32,8 @@ git switch -c sync/xiaozhi-$(date +%Y-%m-%d) origin/capricorn
 git merge upstream/main          # then open a pull request to capricorn
 ```
 
+When a sync touches xiaozhi's issue forms or `SUPPORT.md`, keep them deleted: this repository uses its own forms in `.github/ISSUE_TEMPLATE/`.
+
 Changes meant for xiaozhi go to xiaozhi as pull requests from topic branches based on `upstream/main`. Branch names here must not start with `ci/`: xiaozhi's own build workflow runs its full matrix on those. We already contribute upstream on the LiveKit side: [livekit/client-sdk-esp32#74](https://github.com/livekit/client-sdk-esp32/pull/74).
 
 ## Status

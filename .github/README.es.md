@@ -32,6 +32,8 @@ git switch -c sync/xiaozhi-$(date +%Y-%m-%d) origin/capricorn
 git merge upstream/main          # luego abre un pull request a capricorn
 ```
 
+Si una sincronización toca los formularios de issues de xiaozhi o `SUPPORT.md`, mantenlos borrados: este repositorio usa sus propios formularios en `.github/ISSUE_TEMPLATE/`.
+
 Lo que sirva a xiaozhi se le envía como pull request desde ramas basadas en `upstream/main`. Los nombres de rama no deben empezar con `ci/`: el workflow de compilación de xiaozhi corre su matriz completa en esas ramas. Del lado de LiveKit ya contribuimos: [livekit/client-sdk-esp32#74](https://github.com/livekit/client-sdk-esp32/pull/74).
 
 ## Estado
