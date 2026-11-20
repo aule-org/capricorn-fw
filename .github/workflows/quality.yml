@@ -2,7 +2,7 @@ name: Code quality
 
 on:
   push:
-    branches: [capricorn]
+    branches: [aule]
   pull_request:
   workflow_dispatch:
   schedule:
@@ -42,7 +42,7 @@ jobs:
   firmware:
     name: Cppcheck and build tooling
     # Forks and non-default branches never use the shared server.
-    runs-on: ${{ github.ref == 'refs/heads/capricorn' && github.event_name != 'pull_request' && vars.AULE_QUALITY_RUNNER || 'ubuntu-latest' }}
+    runs-on: ${{ github.ref == 'refs/heads/aule' && github.event_name != 'pull_request' && vars.AULE_QUALITY_RUNNER || 'ubuntu-latest' }}
     timeout-minutes: 25
     permissions:
       contents: read
@@ -66,17 +66,17 @@ jobs:
         run: python -m unittest discover -s scripts/tests -v
       - name: Install Cppcheck
         run: bash scripts/ci/install-cppcheck.sh
-      - name: Analyze the Capricorn board
+      - name: Analyze the Aule board
         run: |
           mkdir -p reports
           cppcheck --std=c++23 --platform=unix32 --enable=warning,performance,portability \
             --error-exitcode=1 --output-format=sarif \
-            main/boards/aule/capricorn-v0.2 2> reports/cppcheck.sarif
+            main/boards/aule/aule-v0.2 2> reports/cppcheck.sarif
       - uses: github/codeql-action/upload-sarif@v4
         if: ${{ !cancelled() && github.event_name != 'pull_request' && hashFiles('reports/cppcheck.sarif') != '' }}
         with:
           sarif_file: reports/cppcheck.sarif
-          category: cppcheck-capricorn
+          category: cppcheck-aule
       - uses: actions/upload-artifact@v7
         if: ${{ !cancelled() }}
         with:

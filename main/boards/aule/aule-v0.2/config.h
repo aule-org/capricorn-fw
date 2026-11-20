@@ -1,5 +1,5 @@
-// Capricorn board v0.2 (capri-slate v0.2.x touch). Pin map from capricorn-hw/software.
-// Hardware: https://github.com/meet-aule/capricorn-hw
+// Aule board v0.2 (capri-slate v0.2.x touch). Pin map from aule-hw/software.
+// Hardware: https://github.com/meet-aule/aule-hw
 #ifndef _BOARD_CONFIG_H_
 #define _BOARD_CONFIG_H_
 

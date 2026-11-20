@@ -11,10 +11,10 @@
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
 
-#define TAG "CapricornBoard"
+#define TAG "AuleBoard"
 
-// Capricorn v0.2: audio, talk button and status LED. The e-ink display and touch come next.
-class CapricornBoard : public WifiBoard {
+// Aule v0.2: audio, talk button and status LED. The e-ink display and touch come next.
+class AuleBoard : public WifiBoard {
 private:
     i2c_master_bus_handle_t i2c_bus_ = nullptr;
     Button talk_button_;
@@ -76,7 +76,7 @@ private:
     }
 
 public:
-    CapricornBoard() : talk_button_(TALK_BUTTON_GPIO) {
+    AuleBoard() : talk_button_(TALK_BUTTON_GPIO) {
         PowerOnAudio();
         InitializeI2c();
         InitializeMicSwitch();
@@ -102,4 +102,4 @@ public:
     }
 };
 
-DECLARE_BOARD(CapricornBoard);
+DECLARE_BOARD(AuleBoard);

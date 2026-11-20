@@ -2,7 +2,7 @@
 
 ## Pull requests
 
-Use a pull request for changes to `capricorn`. The branch must include the latest base
+Use a pull request for changes to the default branch. The branch must include the latest base
 commit, all required checks must pass, and review conversations must be resolved.
 The rules apply to administrators too. There is no automatic merge.
 
@@ -33,8 +33,8 @@ the PR description. Keep that description focused on the final change and eviden
 
 ## Required checks
 
-- `Firmware CI`: all three Capricorn/reference-board builds.
-- `Cppcheck and build tooling`: native host tests and Capricorn source analysis.
+- `Firmware CI`: all three Aule/reference-board builds.
+- `Cppcheck and build tooling`: native host tests and Aule source analysis.
 - `Image converter`: the real Pillow conversion path, including resized images,
   transparency, LVGL output, and RLE compression.
 - `PR title`: title format and obvious placeholders.
