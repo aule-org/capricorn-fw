@@ -12,7 +12,7 @@ body:
     attributes:
       label: Board
       options:
-        - Aule Capricorn v0.2
+        - Aule v0.2
         - Waveshare ESP32-S3 Audio Board
         - Waveshare ESP32-S3 e-Paper 3.97
         - Other (say which below)

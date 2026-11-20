@@ -1,5 +1,5 @@
 name: Board support
-description: Run Capricorn's tutor on another ESP32 board.
+description: Run Aule's tutor on another ESP32 board.
 title: "[Board]: "
 labels: ["board support"]
 body:
